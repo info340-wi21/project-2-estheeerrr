@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Getting Started with Our Athlete Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was for INFO 340 and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This repository contains code for an interactive information web app, created for the Client-Side Web Development course at the UW iSchool.
+
+## Problem Statement and Solution
+Many people are fan of sport especially Basketball, but there no place for people come together to discuss for sport in this case Basketball.
+
+We want to create a platform that provides statistics information as well as discussion and lastly users will be able to create brackets for the NBA.
 
 ## Available Scripts
 
