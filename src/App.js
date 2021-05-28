@@ -6,8 +6,10 @@ import './App.css';
 import{ CardBoard } from './playerBoad';
 import{ PlayerForm } from './form';
 import{ GameBoard } from './gameBoard';
+import { useState } from 'react';
 
-function App() {
+function App(props) {
+  const [players, setPlayers] = useState(props.player);
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +19,7 @@ function App() {
       <main>
         {/* <div className="gridView">
         </div>  */}
-        <CardBoard/>
+        <CardBoard players = {players}/>
 
         {/* <div className="submitPlayer">
         </div> */}

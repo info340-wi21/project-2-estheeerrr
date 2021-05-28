@@ -25,3 +25,24 @@ footer {
   color: white;
   text-align: center
 }
+
+/* .card-deck .card {
+  flex-basis: 200px;
+  margin-bottom: 30px;
+} */
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#player-board {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
