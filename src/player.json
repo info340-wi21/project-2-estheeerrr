@@ -1,0 +1,7 @@
+[
+    {"name":"LeBron", "from":"UW", "point": 3, "assist": 4, "rebound": 5},
+    {"name":"a", "from":"qwq", "point": 3, "assist": 4, "rebound": 3},
+    {"name":"b", "from":"rqr", "point": 2, "assist": 4, "rebound": 5},
+    {"name":"c", "from":"werw", "point": 3, "assist": 3, "rebound": 5},
+    {"name":"d", "from":"trr", "point": 8, "assist": 1, "rebound": 5}
+]
