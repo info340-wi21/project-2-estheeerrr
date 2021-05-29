@@ -38,7 +38,7 @@ function CardBody(props) {
     );
 }
 
-function CardList(props) {
+export function CardList(props) {
     let items = props.players.map((item) => {
         return <CardBody key={item} name={item.name} from={item.from} point={item.point} assist={item.assist} rebound={item.rebound}/>
     });

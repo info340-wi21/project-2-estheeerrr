@@ -23,6 +23,7 @@ function App(props) {
 
         {/* <div className="submitPlayer">
         </div> */}
+        <br/>
         <PlayerForm/>
 
         {/* <div className="scoreBoard">
