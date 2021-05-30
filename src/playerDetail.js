@@ -5,17 +5,22 @@ import { useParams } from 'react-router';
 
 
 function DetailPage(props) {
-    const [data, setData] = useState(undefined)
+    const [data, setData] = useState(undefined);
     let name = props.name;
-    let note = undefined;
+    const [note, setNote] = useState(undefined);
     useEffect(() => {
-        getData(setData)
-        for (let i = 0; i < data.notes.length; i++) {
-            if (name === data.notes[i].name) {
-                note = data.notes[i].note;
+        getData(setData);
+    }, [])
+    useEffect(() => {
+        if (data) {
+            console.log(data);
+            for (let i = 0; i < data.notes.length; i++) {
+                if (name === data.notes[i].name) {
+                    setNote(data.notes[i].note);
+                }
             }
         }
-    }, [])
+    }, [data]);
     return <p>{note}</p>;
 }
 
@@ -25,7 +30,7 @@ async function getData(setData) {
             return res.json()
         })
         .then((data) => {
-            setData(JSON.stringify(data))
+            setData(data)
         })
         .catch(function(err) {
             console.log(err);
