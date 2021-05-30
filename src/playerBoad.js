@@ -18,7 +18,7 @@ export function CardBoard(props) {
     )
 }
 
-function CardBody(props) {
+export function CardBody(props) {
     const [redirectTo, setRedirectTo] = useState(undefined);
 
     const handleClick = () => {

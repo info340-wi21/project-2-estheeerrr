@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {CardList} from './playerBoad.js'
+import {CardBoard, CardList, CardBody} from './playerBoad.js';
 
 export function PlayerForm() {
     console.log("whats uppppppp")
@@ -16,18 +16,26 @@ function PlayerFormInput() {
     const [rpg,setRpg]=useState(0);
     const [note,setNote]=useState("");
 
-    const handleClick = (event) => {
-        let newPlayer = {
-            name: name,
-            from: school,
-            point: ppg,
-            assist: apg,
-            rebound: rpg,
-            note: note
-        }
-        return (
-            <CardList player={newPlayer} />
-        )
+    const infoInput = {
+      name: name,
+        from: school,
+        point: ppg,
+        assist: apg,
+        rebound: rpg,
+        note: note
+    }
+
+    const handleClick = () => {
+      infoInput.name = name;
+      infoInput.from = school;
+      infoInput.point = ppg;
+      infoInput.assist = apg;
+      infoInput.rebound = rpg;
+      infoInput.note = note;
+
+      return (
+        <CardList player={infoInput} />
+      )
     }
     
 
