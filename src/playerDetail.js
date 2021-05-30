@@ -7,10 +7,16 @@ import { useParams } from 'react-router';
 function DetailPage(props) {
     const [data, setData] = useState(undefined)
     let name = props.name;
+    let note = undefined;
     useEffect(() => {
         getData(setData)
+        for (let i = 0; i < data.notes.length; i++) {
+            if (name === data.notes[i].name) {
+                note = data.notes[i].note;
+            }
+        }
     }, [])
-    return <p>{data}</p>;
+    return <p>{note}</p>;
 }
 
 async function getData(setData) {
@@ -20,7 +26,6 @@ async function getData(setData) {
         })
         .then((data) => {
             setData(JSON.stringify(data))
-            console.log(data);
         })
         .catch(function(err) {
             console.log(err);
