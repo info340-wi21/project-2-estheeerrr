@@ -1,28 +1,30 @@
-import { React, useState } from 'react';
-import fetch from './fetch';
+import { React, useEffect, useState } from 'react';
 import { UncontrolledCarousel, Button } from 'reactstrap';
 import _ from 'lodash';
 import { useParams } from 'react-router';
 
 
-async function DetailPage(props) {
+function DetailPage(props) {
     const [data, setData] = useState(undefined)
     let name = props.name;
-    setData(fetch);
-    console.log(data);
+    useEffect(() => {
+        getData(setData)
+    }, [])
     return <p>{data}</p>;
 }
 
 async function getData(setData) {
-    let res = await fetch('http://test449.site44.com/playerNote.json')
-    .then(function(response) {
-        response.json().then(function(data) {
-            setData(data.notes);
+    fetch('http://test449.site44.com/playerNote.json')
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            setData(JSON.stringify(data))
+            console.log(data);
+        })
+        .catch(function(err) {
+            console.log(err);
         });
-    })
-    .catch(function(err) {
-        console.log(err);
-    });
 
 }
 
