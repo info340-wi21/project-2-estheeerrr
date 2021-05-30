@@ -1,17 +1,30 @@
 import React from 'react';
 import { useState } from 'react';
+import PlayerDetail from './playerDetail'
+import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
 export function CardBoard(props) {
     const [players, setPlayers] = useState(props.players);
     console.log("whats uppppppp")
     return(
         <div id="player-board">
-            <CardList players={players}/>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/"><CardList players={players}/></Route>
+                    <Route path="/:name"><PlayerDetail /></Route>
+                </Switch>
+            </BrowserRouter>
         </div>
     )
 }
 
 function CardBody(props) {
+    const [redirectTo, setRedirectTo] = useState(undefined);
+
+    const handleClick = () => {
+        setRedirectTo(props.name);
+    }
+
     return (
         <div className="col-4">
             <div className="card">
@@ -20,7 +33,10 @@ function CardBody(props) {
                         <h4 className="card-title">{props.name}</h4>
                         <h5 className="card-subtitle mb-2 text-muted">From: {props.from}</h5>
                     </div>
-                    <a href="#" className="btn btn-info">Note</a>
+                    <button className="btn btn-info" onClick={handleClick}>Note</button>
+                    {
+                        redirectTo !== undefined && <Redirect to={redirectTo}/>
+                    }
                 </div>
                 <div className="card-footer">
                     <p className="card-text">
