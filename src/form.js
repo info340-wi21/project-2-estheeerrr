@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {CardBoard, CardList, CardBody} from './playerBoad.js';
+import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
+import { newPlayer } from './newPlayer';
 
 export function PlayerForm() {
     console.log("whats uppppppp")
@@ -24,6 +26,7 @@ function PlayerFormInput() {
         rebound: rpg,
         note: note
     }
+    const [redirectTo, setRedirectTo] = useState(undefined);
 
     const handleClick = () => {
       infoInput.name = name;
@@ -32,10 +35,9 @@ function PlayerFormInput() {
       infoInput.assist = apg;
       infoInput.rebound = rpg;
       infoInput.note = note;
+      console.log(infoInput);
 
-      return (
-        <CardList player={infoInput} />
-      )
+      setRedirectTo('/:name');
     }
     
 
@@ -67,6 +69,12 @@ function PlayerFormInput() {
           <input className="form-control" placeholder="Enter note here..." name="playernote" onChange={event =>setNote(event.target.value)}/>
         </div>
         <button name="submitBtn" type="submit" className="btn btn-primary" onClick={handleClick} >Submit</button>
+          { redirectTo !== undefined && 
+            <BrowserRouter>
+              <Switch>
+                <Redirect to={redirectTo}><newPlayer player={infoInput} /></Redirect>
+              </Switch>
+            </BrowserRouter>}
       </form>
     )
 }
