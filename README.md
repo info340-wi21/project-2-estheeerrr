@@ -1,5 +1,7 @@
 # Getting Started with Our Athlete Management Application
 
+Link to the Github page: https://info340-wi21.github.io/project-2-estheeerrr/
+
 This project was for INFO 340 and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This repository contains code for an interactive information web app, created for the Client-Side Web Development course at the UW iSchool.
