@@ -1,6 +1,5 @@
-import './App.css';
 // boostrap组件可以通过下面这样来import， 这个是documentation，直接复制粘贴就完了：https://react-bootstrap.github.io/getting-started/introduction/
-// 我已经把bootstrap加到node module 里面了，应该能用【狗头 
+// 我已经把bootstrap加到node module 里面了，应该能用【狗头
 // import Button from 'react-bootstrap/Button';
 // import { Button } from 'react-bootstrap';
 import{ CardBoard } from './playerBoad';
