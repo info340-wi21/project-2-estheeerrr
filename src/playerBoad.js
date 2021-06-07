@@ -24,7 +24,7 @@ export function CardBody(props) {
     const handleClick = () => {
         setRedirectTo(props.name);
     }
-
+    console.log(props);
     return (
         <div className="col-4">
             <div className="card">
@@ -56,7 +56,7 @@ export function CardBody(props) {
 
 export function CardList(props) {
     let items = props.players.map((item) => {
-        return <CardBody key={item} name={item.name} from={item.from} point={item.point} assist={item.assist} rebound={item.rebound}/>
+        return <CardBody key={item.name} name={item.name} from={item.from} point={item.point} assist={item.assist} rebound={item.rebound}/>
     });
     return (
         <div className="card-deck">
