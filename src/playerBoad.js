@@ -1,3 +1,7 @@
+/* This player board one of the main components of our Athlete Management Application.
+It is used to display the name and basic information for players in game.
+Interactivity feature: By Clicking on the note button, the user is able to view the most notable feature of this player.
+*/
 import React from 'react';
 import { useState } from 'react';
 import PlayerDetail from './playerDetail'

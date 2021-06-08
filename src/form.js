@@ -1,3 +1,7 @@
+/*
+One of the main form function of our App. 
+Interactivity feature:User is able to type in the players' information which will be recorded in our database.
+*/
 import React, { useState } from 'react';
 import {CardBoard, CardList, CardBody} from './playerBoad.js';
 import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
