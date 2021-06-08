@@ -1,10 +1,13 @@
+/*
+One of the main form function of our App. 
+Interactivity feature:User is able to type in the players' information which will be recorded in our database.
+*/
 import React, { useState } from 'react';
 import {CardBoard, CardList, CardBody} from './playerBoad.js';
 import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
 import { newPlayer } from './newPlayer';
 
 export function PlayerForm() {
-    console.log("whats uppppppp")
     return (
         <PlayerFormInput />
     )
@@ -39,15 +42,14 @@ function PlayerFormInput() {
 
       setRedirectTo('/:name');
     }
-    
+
 
     return(
         <form>
+          <h2>Submit Player</h2>
         <div className="form-group">
           <label>Add Player</label>
-          <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event =>setName(event.target.value)}/>
-          <small id="emailHelp" className="form-text text-muted">We'll never share your information with anyone else.</small>
-        </div>
+          <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event =>setName(event.target.value)}/>        </div>
         <div className="form-group">
           <label>School</label>
           <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event =>setSchool(event.target.value)} />
@@ -69,7 +71,7 @@ function PlayerFormInput() {
           <input className="form-control" placeholder="Enter note here..." name="playernote" onChange={event =>setNote(event.target.value)}/>
         </div>
         <button name="submitBtn" type="submit" className="btn btn-primary" onClick={handleClick} >Submit</button>
-          { redirectTo !== undefined && 
+          { redirectTo !== undefined &&
             <BrowserRouter>
               <Switch>
                 <Redirect to={redirectTo}><newPlayer player={infoInput} /></Redirect>

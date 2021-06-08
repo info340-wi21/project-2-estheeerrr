@@ -1,3 +1,7 @@
+/* This player board one of the main components of our Athlete Management Application.
+It is used to display the name and basic information for players in game.
+Interactivity feature: By Clicking on the note button, the user is able to view the most notable feature of this player.
+*/
 import React from 'react';
 import { useState } from 'react';
 import PlayerDetail from './playerDetail'
@@ -24,7 +28,7 @@ export function CardBody(props) {
     const handleClick = () => {
         setRedirectTo(props.name);
     }
-
+    console.log(props);
     return (
         <div className="col-4">
             <div className="card">
@@ -56,7 +60,7 @@ export function CardBody(props) {
 
 export function CardList(props) {
     let items = props.players.map((item) => {
-        return <CardBody key={item} name={item.name} from={item.from} point={item.point} assist={item.assist} rebound={item.rebound}/>
+        return <CardBody key={item.name} name={item.name} from={item.from} point={item.point} assist={item.assist} rebound={item.rebound}/>
     });
     return (
         <div className="card-deck">
