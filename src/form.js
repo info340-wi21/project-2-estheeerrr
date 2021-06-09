@@ -1,5 +1,5 @@
 /*
-One of the main form function of our App. 
+One of the main form function of our App.
 Interactivity feature:User is able to type in the players' information which will be recorded in our database.
 */
 import React, { useState } from 'react';
@@ -49,26 +49,26 @@ function PlayerFormInput() {
           <h2>Submit Player</h2>
         <div className="form-group">
           <label>Add Player</label>
-          <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event =>setName(event.target.value)}/>        </div>
+          <input className="form-control" placeholder="Enter name..." name="playername" onChange={event =>setName(event.target.value)}/>        </div>
         <div className="form-group">
           <label>School</label>
-          <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event =>setSchool(event.target.value)} />
+          <input className="form-control" placeholder="Enter school..." name="playerschool" onChange={event =>setSchool(event.target.value)} />
         </div>
         <div className="form-group">
           <label>Points</label>
-          <input className="form-control" placeholder="Enter points here..." name="ppg" onChange={event =>setPpg(event.target.value)}/>
+          <input className="form-control" placeholder="Enter points..." name="ppg" onChange={event =>setPpg(event.target.value)}/>
         </div>
         <div className="form-group">
           <label>Assists</label>
-          <input className="form-control" placeholder="Enter assists here..." name="apg" onChange={event =>setApg(event.target.value)}/>
+          <input className="form-control" placeholder="Enter assists..." name="apg" onChange={event =>setApg(event.target.value)}/>
         </div>
         <div className="form-group">
           <label>Rebounds</label>
-          <input className="form-control" placeholder="Enter rebounds here..." name="rpg" onChange={event =>setRpg(event.target.value)}/>
+          <input className="form-control" placeholder="Enter rebounds..." name="rpg" onChange={event =>setRpg(event.target.value)}/>
         </div>
         <div className="form-group">
           <label>Note</label>
-          <input className="form-control" placeholder="Enter note here..." name="playernote" onChange={event =>setNote(event.target.value)}/>
+          <input className="form-control" placeholder="Enter note..." name="playernote" onChange={event =>setNote(event.target.value)}/>
         </div>
         <button name="submitBtn" type="submit" className="btn btn-primary" onClick={handleClick} >Submit</button>
           { redirectTo !== undefined &&
