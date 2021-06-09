@@ -5,7 +5,7 @@ Interactivity feature:User is able to type in the players' information which wil
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import _ from 'lodash';
-import { CardBoard } from './playerBoad.js';
+import { CardBody } from './playerBoad.js';
 import { useParams } from 'react-router-dom'
 
 const infoInput = {
@@ -28,6 +28,7 @@ export function PlayerForm() {
       </Switch>
     </BrowserRouter>
   )
+}
 
 function PlayerFormInput() {
   const [name, setName] = useState("");
@@ -90,8 +91,8 @@ function NewPlayer() {
   if (infoInput.name === nameInput.name) {
     console.log(infoInput);
     return (
-      <CardBoard players={ infoInput} />
-    );
+      <CardBody players={infoInput} />
+    )
   } else {
     return (
       <p>Fail to submit!</p>
