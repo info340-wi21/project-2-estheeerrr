@@ -86,11 +86,19 @@ function PlayerFormInput() {
     </form>
   )
 }
+<<<<<<< HEAD
 
 function NewPlayer() {
   let nameInput = useParams();
   const [redirectTo, setRedirectTo] = useState(undefined);
 
+=======
+
+function NewPlayer() {
+  let nameInput = useParams();
+  const [redirectTo, setRedirectTo] = useState(undefined);
+
+>>>>>>> 0f65d45de194f509140d4acac990fe3aafd415bc
   const handleClick = () => {
     setRedirectTo(true);
   }
@@ -173,4 +181,8 @@ function NewNote() {
       <p>Fail to load notes.</p>
     )
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0f65d45de194f509140d4acac990fe3aafd415bc
