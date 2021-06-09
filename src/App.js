@@ -3,35 +3,34 @@ import './App.css';
 // 我已经把bootstrap加到node module 里面了，应该能用【狗头 
 // import Button from 'react-bootstrap/Button';
 // import { Button } from 'react-bootstrap';
-import{ CardBoard } from './playerBoad';
-import{ PlayerForm } from './form';
-import{ GameBoard } from './gameBoard';
+import { CardBoard } from './playerBoard';
+import { PlayerForm } from './form';
+import { GameBoard } from './gameBoard';
 import { useState } from 'react';
-import { Router } from 'react-dom'
 
 function App(props) {
   const [players, setPlayers] = useState(props.player);
   return (
     <div className="App">
-        <header className="App-header">
-          <h1>Player Viewer</h1>
-          <p>By Team Cereal Killer</p>
-        </header>
-        <main>
-          {/* <div className="gridView">
+      <header className="App-header">
+        <h1>Player Viewer</h1>
+        <p>By Team Cereal Killer</p>
+      </header>
+      <main>
+        {/* <div className="gridView">
           </div>  */}
-          <CardBoard players = {players}/>
+        <CardBoard players={players} />
 
-          {/* <div className="submitPlayer">
+        {/* <div className="submitPlayer">
           </div> */}
-          <br/>
-          <PlayerForm/>
+        <br />
+        <PlayerForm />
 
-          {/* <div className="scoreBoard">
+        {/* <div className="scoreBoard">
           </div> */}
-          <GameBoard/>
-        </main>
-        <footer>A project for INFO 340 <a href="https://github.com/info340a-sp21/project-01-Gyangle">Link</a></footer>
+        <GameBoard />
+      </main>
+      <footer>A project for INFO 340 <a href="https://github.com/info340a-sp21/project-01-Gyangle">Link</a></footer>
     </div>
   );
 }
