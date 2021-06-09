@@ -6,12 +6,15 @@ This is an app that provides statistics information as well as discussion and la
 // boostrap组件可以通过下面这样来import， 这个是documentation，直接复制粘贴就完了：https://react-bootstrap.github.io/getting-started/introduction/
 // 我已经把bootstrap加到node module 里面了，应该能用【狗头
 // import Button from 'react-bootstrap/Button';
+import React from 'react'; //import React Component
 import { Button } from 'react-bootstrap';
 import { CardBoard } from './playerBoad';
 import { PlayerForm } from './form';
 import { GameBoard } from './gameBoard';
 import { useState } from 'react';
-import { Router, NavLink} from 'react-dom'
+import {TeamPage} from './Team';
+import { BrowserRouter, NavLink,Route, Switch, Link, Redirect} from 'react-router-dom';
+import {ProposalPage} from './Proposal';
 
 function App(props) {
   const [players, setPlayers] = useState(props.player);
@@ -27,19 +30,40 @@ function App(props) {
 
       <main>
         <div className="row">
-          <div className="container">
+          <div className="col-3">
             <AboutNav />
           </div>
 
+          <div className="col-9">
+            <Switch>
+              <Route exact path="/">
+                <div className="row">
+                  <div className="col-9">    
+                    <CardBoard players={players} />
+                  </div>
+                  <div className="col-3">
+                    <PlayerForm />
+                  </div>
+                </div>
+              </Route>
 
-            <span className="container boardSpan">
-              <CardBoard players={players} />
-            </span>
+            <Route path="/proposal">
+              <span className="container proposal">
+                <ProposalPage />
+              </span>
+            </Route>
 
-            <span className="container formSpan">
-              <PlayerForm />
-            </span>
+            <Route path="/team">
+              <span className="container team">
+                <TeamPage />
+              </span>
+            </Route>
+          
+            <Redirect to="/"></Redirect>
+              
+          </Switch>
 
+          </div>
        </div>
       </main>
       <footer>A project for INFO 340 <a href="https://github.com/info340a-sp21/project-01-Gyangle">Link</a></footer>
@@ -51,14 +75,19 @@ function App(props) {
 /*Navigation bar that used to redirect routing */
 function AboutNav() {
   return (
+    
     <nav id="aboutLinks">
+      
       <h2>About</h2>
       <ul className="list-unstyled">
-        <li>Player Board</li>
-        <li>Proposal</li>
-        <li>Our Team</li>
+  
+        <li><NavLink exact to="/">Player Board</NavLink></li>
+        <li><NavLink to="/proposal">Proposal</NavLink></li>
+        <li><NavLink to="/team">Our Team</NavLink></li>
       </ul>
+      
     </nav>
+      
   );
 }
 export default App;
