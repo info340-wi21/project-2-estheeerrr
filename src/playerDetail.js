@@ -2,16 +2,22 @@ import { React, useEffect, useState } from 'react';
 import { UncontrolledCarousel, Button } from 'reactstrap';
 import _ from 'lodash';
 import { useParams } from 'react-router';
+import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+
 
 
 function DetailPage() {
     const [data, setData] = useState(undefined);
+    const [redirectTo, setRedirectTo] = useState(undefined);
     let name = useParams();
     console.log(name);
     const [note, setNote] = useState(undefined);
     useEffect(() => {
         getData(setData);
     }, [])
+    const handleClick = () => {
+        setRedirectTo("/");
+    }
     useEffect(() => {
         if (data) {
             console.log(data);
@@ -22,7 +28,15 @@ function DetailPage() {
             }
         }
     }, [data]);
-    return <p>{note}</p>;
+    return (
+        <div>
+            <p>{note}</p>
+            <button className="btn btn-info" onClick={handleClick}>Back</button>
+            {
+                redirectTo !== undefined && <Redirect to={redirectTo}/>
+            }
+        </div>
+    );
 }
 
 async function getData(setData) {

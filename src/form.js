@@ -1,3 +1,7 @@
+/*
+One of the main form function of our App. 
+Interactivity feature:User is able to type in the players' information which will be recorded in our database.
+*/
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import _ from 'lodash';
@@ -24,8 +28,6 @@ export function PlayerForm() {
       </Switch>
     </BrowserRouter>
   )
-}
-
 
 function PlayerFormInput() {
   const [name, setName] = useState("");
