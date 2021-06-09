@@ -1,10 +1,7 @@
 /*
 
 */
-import React from 'react';
-
-export function GameBoard(props) {
-    console.log("whats uppppppp")
+export function GameBoard() {
     return(
         <div>
             <p>Choose a statistic to rank the players</p>
