@@ -58,7 +58,7 @@ function App(props) {
   }
   
   function GuestGreeting() {
-    return <div><h3>Please sign up.</h3></div>;
+    return <div><h3>Please log in.</h3></div>;
   }
 
   function Greeting() {
