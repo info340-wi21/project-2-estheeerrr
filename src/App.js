@@ -16,7 +16,7 @@ import { Router, NavLink} from 'react-dom'
 function App(props) {
   const [players, setPlayers] = useState(props.player);
   return (
-   
+
     <div className="App">
 
       <header className="App-header">
@@ -27,28 +27,24 @@ function App(props) {
 
       <main>
         <div className="row">
-          <div className="col-3">
+          <div className="container">
             <AboutNav />
           </div>
-          
-          <div className="col-9">
-            <div className="container">
-              <CardBoard players={players} />
-            </div>
-          
-            <div className="container">
-              <PlayerForm />
-            </div>
 
-            <div className="container">
-              <GameBoard />
-            </div>
-          </div>
+
+            <span className="container boardSpan">
+              <CardBoard players={players} />
+            </span>
+
+            <span className="container formSpan">
+              <PlayerForm />
+            </span>
+
        </div>
       </main>
       <footer>A project for INFO 340 <a href="https://github.com/info340a-sp21/project-01-Gyangle">Link</a></footer>
     </div>
-    
+
   );
 }
 
@@ -58,9 +54,9 @@ function AboutNav() {
     <nav id="aboutLinks">
       <h2>About</h2>
       <ul className="list-unstyled">
-        <li>PlayerBoard</li>
-        <li>PlayerForm</li>
-        <li>GameBoard</li>
+        <li>Player Board</li>
+        <li>Proposal</li>
+        <li>Our Team</li>
       </ul>
     </nav>
   );

@@ -2,6 +2,10 @@
     {"name":"LeBron", "from":"UW", "point": 3, "assist": 4, "rebound": 5},
     {"name":"Karl", "from":"qwq", "point": 3, "assist": 4, "rebound": 3},
     {"name":"Lonzo", "from":"rqr", "point": 2, "assist": 4, "rebound": 5},
-    {"name":"Kentavious", "from":"werw", "point": 3, "assist": 3, "rebound": 5},
-    {"name":"Grant Yang", "from":"trr", "point": 8, "assist": 1, "rebound": 5}
+    {"name":"James", "from":"werw", "point": 3, "assist": 3, "rebound": 5},
+    {"name":"Grant", "from":"uw", "point": 8, "assist": 1, "rebound": 5},
+    {"name":"Kevin", "from":"UW", "point": 3, "assist": 4, "rebound": 5},
+    {"name":"Lee", "from":"qwq", "point": 3, "assist": 4, "rebound": 3},
+    {"name":"Derick", "from":"rqr", "point": 2, "assist": 4, "rebound": 5},
+    {"name":"Dalton", "from":"werw", "point": 3, "assist": 3, "rebound": 5}
 ]

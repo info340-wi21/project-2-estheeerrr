@@ -9,7 +9,6 @@ import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-rou
 
 export function CardBoard(props) {
     const [players, setPlayers] = useState(props.players);
-    console.log("whats uppppppp")
     return(
         <div id="player-board">
             <BrowserRouter>
@@ -28,16 +27,15 @@ export function CardBody(props) {
     const handleClick = () => {
         setRedirectTo(props.name);
     }
-    console.log(props);
     return (
-        <div className="col-4">
+        <div className="col-lg-4 col-md-6">
             <div className="card">
                 <div className="card-body">
-                    <div>
+                    <div className="mb-2">
                         <h4 className="card-title">{props.name}</h4>
-                        <h5 className="card-subtitle mb-2 text-muted">From: {props.from}</h5>
+                        <h5 className="card-subtitle text-muted">From: <p>{props.from}</p></h5>
                     </div>
-                    <button className="btn btn-info" onClick={handleClick}>Note</button>
+                    <button className="btn btn-info mb-2" onClick={handleClick}>Note</button>
                     {
                         redirectTo !== undefined && <Redirect to={redirectTo}/>
                     }

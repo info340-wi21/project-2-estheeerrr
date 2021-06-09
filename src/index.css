@@ -60,3 +60,67 @@ footer {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
+.card {
+  margin: 15px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  margin: 10px 20px;
+}
+
+.btn {
+  width: auto;
+  height: auto;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card {
+  width: 80%;
+  min-width: 250px;
+}
+
+.App-header {
+  width:100%;
+  min-width: 250px;
+}
+
+.form-control {
+  width: 80%;
+}
+
+/* screen width 1000px and larger */
+@media only screen and (min-device-width: 1000px) {
+  .card {
+    width: 160px;
+  }
+}
+
+
+@media screen and (min-width: 850px) {
+  .row > div {
+    width: 10%;
+  }
+  .boardSpan {
+    width: 70%;
+  }
+  .formSpan {
+    width: 20%;
+  }
+  .form-control {
+    width: 100%;
+  }
+}
+
+/* dont display note btn when screen is too small */
+@media screen and (max-width: 576px) {
+  .card-body .btn {
+    display: none;
+  }
+}
