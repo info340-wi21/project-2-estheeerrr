@@ -28,7 +28,7 @@ export function CardBody(props) {
         setRedirectTo(props.name);
     }
     return (
-        <div className="col-lg-4 col-md-6">
+        <div className="cardContainer col-lg-4 col-md-6">
             <div className="card">
                 <div className="card-body">
                     <div className="mb-2">

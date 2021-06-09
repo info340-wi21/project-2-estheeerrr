@@ -4,9 +4,7 @@ Interactivity feature:User is able to type in the players' information which wil
 */
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import _ from 'lodash';
-import { CardBody } from './playerBoad.js';
-import PlayerDetail from './playerDetail'
+// import _ from 'lodash';
 import { useParams } from 'react-router-dom'
 
 const infoInput = {
@@ -56,18 +54,17 @@ function PlayerFormInput() {
 
   return (
     <form>
+      <h2>Add Player</h2>
       <div className="form-group">
-        <label>Add Player</label>
-        <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event => setName(event.target.value)} />
-        <small id="emailHelp" className="form-text text-muted">We'll never share your information with anyone else.</small>
+        <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event => setName(event.target.value)} required/>
       </div>
       <div className="form-group">
         <label>School</label>
-        <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event => setSchool(event.target.value)} />
+        <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event => setSchool(event.target.value)} required/>
       </div>
       <div className="form-group">
         <label>Points</label>
-        <input className="form-control" placeholder="Enter points here..." name="ppg" onChange={event => setPpg(event.target.value)} />
+        <input className="form-control" placeholder="Enter points here..." name="ppg" onChange={event => setPpg(event.target.value)} required/>
       </div>
       <div className="form-group">
         <label>Assists</label>
@@ -100,7 +97,7 @@ function NewPlayer() {
     return (
       <div>
         <NewCard player={infoInput}/>
-        <button className="btn btn-info" onClick={handleClick}>New</button>
+        <button className="btn btn-info" onClick={handleClick}>New Player</button>
         { redirectTo !== undefined && <Redirect to={"/"} /> }
       </div>
     )
@@ -108,7 +105,7 @@ function NewPlayer() {
     return (
       <div>
         <p>Fail to submit!</p>
-        <button className="btn btn-info" onClick={handleClick}>New</button>
+        <button className="btn btn-info" onClick={handleClick}>New Player</button>
         { redirectTo !== undefined && <Redirect to={redirectTo} />}
       </div>
 
@@ -124,7 +121,9 @@ function NewCard (props) {
         setRedirectTo(player.name);
     }
     return (
-        <div className="col-lg-4 col-md-6">
+      <div>
+                <h2>Newly Added</h2>
+        <div className="cardContainer">
             <div className="card">
                 <div className="card-body">
                     <div className="mb-2">
@@ -149,6 +148,8 @@ function NewCard (props) {
                 </div>
             </div>
         </div>
+      </div>
+
     );
 }
 
