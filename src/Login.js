@@ -8,9 +8,12 @@ export function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [directToSignUp, setDirectToSign] = useState(undefined);
+    const [directToMain, setDirectToMain] = useState(undefined);
+
     const signInWithEmailAndPasswordHandler = (event,email, password) => {
         event.preventDefault();
         giveData(email, password);
+        setDirectToMain("/")
     };
 
     const handleDirect = () => {
@@ -43,6 +46,9 @@ export function SignIn() {
                 <button onClick = {handleDirect}>Sign up</button>
                 {
                     directToSignUp !== undefined && <Redirect to={directToSignUp}/>
+                }
+                {
+                    directToMain !== undefined && <Redirect to={directToMain}/>
                 }
             </form>
 
