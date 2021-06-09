@@ -15,9 +15,68 @@ import { useState } from 'react';
 import {TeamPage} from './Team';
 import { BrowserRouter, NavLink,Route, Switch, Link, Redirect} from 'react-router-dom';
 import {ProposalPage} from './Proposal';
+import SignIn from './Login';
+import SignUp from './SignUp';
+import { auth } from "./firebase.js";
+import { useEffect } from 'react';
+
 
 function App(props) {
   const [players, setPlayers] = useState(props.player);
+
+  const [login, setLogin] = useState(undefined);
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    authentication();
+  },[]);
+
+  const authentication = () => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        setUser(user.email);
+        setLogin(true);
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        setLogin(undefined);
+        setUser("");
+      }
+    });
+  }
+
+  function UserGreeting(name) {
+    const n = name["name"];
+    console.log(n);
+    return (<div>
+      <h3>Welcome back, {n}</h3>
+      <button onClick={() => signOutUser()}>Sign Out</button>
+    </div>);
+  }
+  
+  function GuestGreeting() {
+    return <div><h3>Please sign up.</h3></div>;
+  }
+
+  function Greeting() {
+    if (login) {
+      console.log(user);
+      return <UserGreeting name={user}/>;
+    }
+    return <GuestGreeting />;
+  }
+
+  function signOutUser() {
+    auth.signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+
   return (
 
     <div className="App">
@@ -27,14 +86,16 @@ function App(props) {
         <p>By Team Cereal Killer</p>
       </header>
 
-
       <main>
         <div className="row">
           <div className="col-3">
             <AboutNav />
           </div>
 
+          <Greeting />
+
           <div className="col-9">
+            <p></p>
             <Switch>
               <Route exact path="/">
                 <div className="row">
@@ -57,6 +118,14 @@ function App(props) {
               <span className="container team">
                 <TeamPage />
               </span>
+            </Route>
+
+            <Route path="/login">
+                <SignIn />
+            </Route>
+
+            <Route path="/signup">
+                <SignUp />
             </Route>
           
             <Redirect to="/"></Redirect>
