@@ -3,14 +3,11 @@
 Many people are fan of sport especially Basketball, but there no place for people come together to discuss for sport in this case Basketball.
 This is an app that provides statistics information as well as discussion and lastly users will be able to create brackets for the NBA.
 */
-// boostrap组件可以通过下面这样来import， 这个是documentation，直接复制粘贴就完了：https://react-bootstrap.github.io/getting-started/introduction/
-// 我已经把bootstrap加到node module 里面了，应该能用【狗头
 // import Button from 'react-bootstrap/Button';
 import React from 'react'; //import React Component
 import { Button } from 'react-bootstrap';
 import { CardBoard } from './playerBoad';
 import { PlayerForm } from './form';
-import { GameBoard } from './gameBoard';
 import { useState } from 'react';
 import { TeamPage } from './Team';
 import { BrowserRouter, NavLink, Route, Switch, Link, Redirect } from 'react-router-dom';
@@ -51,14 +48,14 @@ function App(props) {
   function UserGreeting(name) {
     const n = name["name"];
     console.log(n);
-    return (<div>
+    return (<div className="container welcomeback">
       <h3>Welcome back, {n}</h3>
       <button onClick={() => signOutUser()}>Sign Out</button>
     </div>);
   }
 
   function GuestGreeting() {
-    return <div><h3>Please log in.</h3></div>;
+    return <h3>Please log in.</h3>;
   }
 
   function Greeting() {
@@ -116,11 +113,15 @@ function App(props) {
           </Route>
 
           <Route path="/login">
+          <span className="container signin">
             <SignIn />
+            </span>
           </Route>
 
           <Route path="/signup">
+          <span className="container signup">
             <SignUp />
+            </span>
           </Route>
 
           <Redirect to="/"></Redirect>
@@ -141,10 +142,11 @@ function AboutNav() {
 
       <h2>About</h2>
       <ul className="list-unstyled">
-
+        <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink exact to="/">Player Board</NavLink></li>
         <li><NavLink to="/proposal">Proposal</NavLink></li>
         <li><NavLink to="/team">Our Team</NavLink></li>
+        
       </ul>
 
     </nav>

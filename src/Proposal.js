@@ -1,3 +1,4 @@
+/* main proposal page of our project. Containing problem/data domain and app description*/
 import React from 'react';
 
 function ProposalPage() {
