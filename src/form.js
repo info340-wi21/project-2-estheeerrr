@@ -1,6 +1,9 @@
 /*
 One of the main form function of our App.
-Interactivity feature:User is able to type in the players' information which will be recorded in our database.
+Interactivity feature: User is able to type in the players' information which will be presented 
+  as a card on the web page. Once created, the user can do the same application to the card
+  as to the originally presented cards above. The user could create new player card and go 
+  back and forth.
 */
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
@@ -17,8 +20,6 @@ const infoInput = {
 }
 
 export function PlayerForm() {
-  console.log("player form inputs");
-
   return (
     <BrowserRouter>
       <Switch>
@@ -56,15 +57,16 @@ function PlayerFormInput() {
     <form>
       <h2>Add Player</h2>
       <div className="form-group">
-        <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event => setName(event.target.value)} required/>
+        <label>Name</label>
+        <input className="form-control" placeholder="Enter name here..." name="playername" onChange={event => setName(event.target.value)} required />
       </div>
       <div className="form-group">
         <label>School</label>
-        <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event => setSchool(event.target.value)} required/>
+        <input className="form-control" placeholder="Enter school here..." name="playerschool" onChange={event => setSchool(event.target.value)} required />
       </div>
       <div className="form-group">
         <label>Points</label>
-        <input className="form-control" placeholder="Enter points here..." name="ppg" onChange={event => setPpg(event.target.value)} required/>
+        <input className="form-control" placeholder="Enter points here..." name="ppg" onChange={event => setPpg(event.target.value)} required />
       </div>
       <div className="form-group">
         <label>Assists</label>
@@ -93,12 +95,11 @@ function NewPlayer() {
   }
 
   if (infoInput.name === nameInput.name) {
-    console.log(infoInput);
     return (
       <div>
-        <NewCard player={infoInput}/>
+        <NewCard player={infoInput} />
         <button className="btn btn-info" onClick={handleClick}>New Player</button>
-        { redirectTo !== undefined && <Redirect to={"/"} /> }
+        { redirectTo !== undefined && <Redirect to={"/"} />}
       </div>
     )
   } else {
@@ -113,44 +114,44 @@ function NewPlayer() {
   }
 }
 
-function NewCard (props) {
+function NewCard(props) {
   let player = props.player;
   const [redirectTo, setRedirectTo] = useState(undefined);
 
-    const handleClick = () => {
-        setRedirectTo(player.name);
-    }
-    return (
-      <div>
-                <h2>Newly Added</h2>
-        <div className="cardContainer">
-            <div className="card">
-                <div className="card-body">
-                    <div className="mb-2">
-                        <h4 className="card-title">{player.name}</h4>
-                        <h5 className="card-subtitle text-muted">From: <p>{player.from}</p></h5>
-                    </div>
-                    <button className="btn btn-info mb-2" onClick={handleClick}>Note</button>
-                    {
-                        redirectTo !== undefined && <Redirect to={redirectTo}/>
-                    }
-                </div>
-                <div className="card-footer">
-                    <p className="card-text">
-                        Player Statistics:
+  const handleClick = () => {
+    setRedirectTo(player.name);
+  }
+  return (
+    <div>
+      <h2>Newly Added</h2>
+      <div className="cardContainer">
+        <div className="card">
+          <div className="card-body">
+            <div className="mb-2">
+              <h4 className="card-title">{player.name}</h4>
+              <h5 className="card-subtitle text-muted">From: <p>{player.from}</p></h5>
+            </div>
+            <button className="btn btn-info mb-2" onClick={handleClick}>Note</button>
+            {
+              redirectTo !== undefined && <Redirect to={redirectTo} />
+            }
+          </div>
+          <div className="card-footer">
+            <p className="card-text">
+              Player Statistics:
                         <br />
                         Points: {player.point}
-                        <br />
+              <br />
                         Assists: {player.assist}
-                        <br />
+              <br />
                         Rebounds: {player.rebound}
-                    </p>
-                </div>
-            </div>
+            </p>
+          </div>
         </div>
       </div>
+    </div>
 
-    );
+  );
 }
 
 function NewNote() {
@@ -166,12 +167,16 @@ function NewNote() {
       <div>
         <p>{infoInput.note}</p>
         <button className="btn btn-info" onClick={handleClick}>Go Back</button>
-        { redirectTo !== undefined && <Redirect to={"/"} /> }
+        { redirectTo !== undefined && <Redirect to={"/"} />}
       </div>
     )
   } else {
     return (
-      <p>Fail to load notes.</p>
+      <div>
+        <p>Fail to load notes.</p>
+        <button className="btn btn-info" onClick={handleClick}>Go Back</button>
+        { redirectTo !== undefined && <Redirect to={"/"} />}
+      </div>
     )
   }
 }
