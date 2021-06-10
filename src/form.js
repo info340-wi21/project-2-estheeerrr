@@ -2,12 +2,12 @@
 One of the main form function of our App.
 Interactivity feature: User is able to type in the players' information which will be presented 
   as a card on the web page. Once created, the user can do the same application to the card
-  as to the originally presented cards above. The user could create new player card and go 
-  back and forth.
+  as to the originally presented cards above. The user could also create new player card and go 
+  back and forth with this feature.
 */
+
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-// import _ from 'lodash';
 import { useParams } from 'react-router-dom'
 
 const infoInput = {

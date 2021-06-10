@@ -6,7 +6,7 @@ This is an app that provides statistics information as well as discussion and la
 // import Button from 'react-bootstrap/Button';
 import React from 'react'; //import React Component
 import { Button } from 'react-bootstrap';
-import { CardBoard } from './playerBoad';
+import { CardBoard } from './playerBoard';
 import { PlayerForm } from './form';
 import { useState } from 'react';
 import { TeamPage } from './Team';

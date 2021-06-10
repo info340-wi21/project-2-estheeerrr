@@ -1,3 +1,7 @@
+/* 
+  To load the portion of our team information.
+*/
+
 import React from 'react';
 
 function TeamPage() {

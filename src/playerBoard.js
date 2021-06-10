@@ -1,11 +1,13 @@
 /* This player board one of the main components of our Athlete Management Application.
 It is used to display the name and basic information for players in game.
 Interactivity feature: By Clicking on the note button, the user is able to view the most notable feature of this player.
+The data are stored using firebase.
 */
+
 import React from 'react';
 import { useState } from 'react';
 import PlayerDetail from './playerDetail'
-import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 export function CardBoard(props) {
     const [players, setPlayers] = useState(props.players);

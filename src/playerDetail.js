@@ -1,9 +1,12 @@
+/*
+    The load of note data for given player information stored in the database.
+*/
+
 import { React, useEffect, useState } from 'react';
-import { UncontrolledCarousel, Button } from 'reactstrap';
 import _ from 'lodash';
 import { database } from './firebase.js';
 import { useParams } from 'react-router';
-import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 
 
 

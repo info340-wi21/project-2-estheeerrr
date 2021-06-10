@@ -1,7 +1,11 @@
+/*
+    The sign up function for our web page.
+*/
+
 import React, { useState } from "react";
 import { auth } from "./firebase.js";
 import "firebase/auth";
-import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 // https://blog.logrocket.com/user-authentication-firebase-react-apps/

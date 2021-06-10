@@ -1,6 +1,10 @@
+/*
+    The log-in function for our web page.
+*/
+
 import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { auth } from "./firebase.js";
 
 // https://blog.logrocket.com/user-authentication-firebase-react-apps/
