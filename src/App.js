@@ -55,12 +55,12 @@ function App(props) {
   }
 
   function GuestGreeting() {
-    return <h3>Please log in.</h3>;
+    return <h3>Please login, link on the Left.</h3>;
   }
 
   function Greeting() {
     if (login) {
-      console.log(user);
+      // console.log(user);
       return <UserGreeting name={user} />;
     }
     return <GuestGreeting />;
@@ -82,13 +82,13 @@ function App(props) {
         <h1>Player Viewer</h1>
         <p>By Team Cereal Killer</p>
       </header>
-
+      <Greeting />
       <main className="row">
         <div className="container aboutNav">
           <AboutNav />
         </div>
 
-        <Greeting />
+        
 
         <Switch>
           <Route exact path="/">

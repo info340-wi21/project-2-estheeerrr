@@ -78,7 +78,7 @@ function PlayerFormInput() {
       </div>
       <div className="form-group">
         <label>Note</label>
-        <input className="form-control" placeholder="Enter note here..." name="playernote" onChange={event => setNote(event.target.value)} />
+        <input className="form-control" required placeholder="Enter note here..." name="playernote" onChange={event => setNote(event.target.value)} />
       </div>
       <button name="submitBtn" type="submit" className="btn btn-primary" onClick={handleClick} >Submit</button>
       { redirectTo && <Redirect push to={"/Add" + name} />}
@@ -160,6 +160,10 @@ function NewNote() {
 
   const handleClick = () => {
     setRedirectTo(true);
+  }
+
+  if (infoInput.note == ""){
+    infoInput.note ="No Notes Avaliable"
   }
 
   if (infoInput.name === nameInput.name) {
