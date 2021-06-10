@@ -99,27 +99,52 @@ footer {
   .card {
     width: 140px;
   }
+
+  h2 {
+    font-size: 2em;
+    
+  }
+  p {
+    text-align: left;
+  }
+  address {
+    text-align: left;
+  }
 }
 
 /* screen width 850px and larger */
 @media screen and (min-width: 850px) {
   .aboutNav {
     width: 10%;
+    
   }
   .boardSpan {
     width: 70%;
   }
   .formSpan {
-    width: 20%;
+    width: 50%;
   }
   .form-control {
     width: 100%;
   }
+  p {
+    text-align: left;
+  }
+  address {
+    text-align: left;
+  }
+
 }
 
 /* dont display note btn when screen is too small */
 @media screen and (max-width: 576px) {
   .card-body .btn {
     display: none;
+  }
+  p {
+    text-align: left;
+  }
+  address {
+    text-align: left;
   }
 }
